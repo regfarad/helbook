@@ -1,0 +1,325 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 02-déc.-2015, 15:45:16
+    Author     : Régis
+*/
+
+a {
+    color:white;
+}
+.idBody {
+    background-color: #b9def0;
+}
+.elmts{
+    color: midnightblue;
+    font-weight: 900;
+    font-size: 99%;
+}
+.feedback {
+    color: midnightblue;
+    font-weight: 900;
+    font-size: 99%;  
+}
+.idHeader {
+    background-color: #357ebd;
+}
+.textSection {
+    color: midnightblue;
+    font-style: italic;
+    font-weight: bolder;
+    font-size: 150%;
+}
+.positionDateNaiss {
+    margin-right: 0%;
+    margin-left: 0%;
+}
+.positionSection {
+    margin-top: 3.5%;
+}
+.positionAvatar {
+    margin-left: 0%;
+}
+legend {
+    color: midnightblue;
+    font-weight: bolder;
+    font-size: 300%;
+}
+
+.title {
+    color: whitesmoke;
+}
+
+nav ul{
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+    background-color: midnightblue;
+}
+
+nav li{
+    display: inline-block;
+    margin-left: 3%;
+    margin-right: 2%;
+    padding: 0px;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+}
+
+nav li a {
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav li :hover{
+    background-color:lightskyblue;
+    color: midnightblue;
+}
+
+/*info bulle*/
+.ibi {
+    background-color: #357ebd;
+    border: 1px solid white;
+    color: white;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    width: 20px;
+    position: relative;
+    left: 750px;
+    top: 10px;
+    text-align: center;
+}
+
+.liste_membres {
+    color: white;
+    text-align: center;
+    margin: 0 auto;
+    background-color: midnightblue;
+    margin-bottom: 10px;
+    padding: 10px 10px;
+    width: 400px;
+    height: 100px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
+
+.nbr {
+    color:greenyellow;
+}
+
+
+.info p strong {
+    text-decoration: underline;
+}
+
+.param_fieldset {
+    padding-left: 20px;  
+}
+
+.photo_profil {
+    margin-left: 10px;
+}
+
+/*.amis a {
+    color:midnightblue; 
+    font-weight: bolder;  
+    padding-left: 10px;
+}*/
+
+.retirer a {
+    color:red; 
+    font-weight: bolder; 
+}
+
+.envoimsg a {
+    color: midnightblue; 
+    font-weight: bolder;  
+}
+
+.conversation {
+    color: white;
+    text-align: center;
+    margin: 0 auto;
+    width: 600px;
+    background-color: midnightblue;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
+.messages {
+    color: white;
+    text-align: center;
+    margin: 0 auto;
+    width: 600px;
+    background-color: midnightblue;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+}
+
+
+
+/* Effet sur le textarea pour le chat */
+/*On va commencer par styliser le conteneur .field en respectant les dimensions préconisées par google*/
+.field{
+    position: relative;
+    height: 72px;
+    padding: 16px 0 8px 0;
+}
+/*Pour le label, on va le placer normalement, puis utiliser les tranformations CSS pour le transformer en placeholder.*/
+.field-label{
+    position: relative;
+    margin: 0;
+    display: block;
+
+    color:  midnightblue;
+    line-height: 16px;
+    font-size: 16px;
+    font-weight: 400;
+
+    transform: translateY(24px);
+    transition: transform 0.3s, color 0.3s;
+    transform-origin: 0 50%;
+}
+/*Enfin, on va rendre le champs invisible en supprimant le fond et les bordures.*/
+.field-input{
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 32px;
+    padding: 8px 0;
+
+    line-height: 16px;
+    font-family: Roboto;
+    font-size: 16px;
+
+    background: transparent;
+    border: none;
+    -webkit-appearance: none;
+    outline: none;
+}
+
+.field-area {
+    height: auto;
+    padding-top: 5px;
+    width: 90%;
+}
+/*Enfin, pour créer la bordure sous le champs nous utiliserons les pseudo-éléments. On pourrait créer une bordure sur le champs
+mais vu que l'on souhaite animer la barre, un pseudo-élément est plus intéréssant.*/
+.field::after, .field::before{
+    content:'';
+    height: 2px;
+    width: 100%;
+    position: absolute;
+    bottom: 6px;
+    left: 0;
+
+    background-color: #e6e6e6;
+}
+
+.field::after{
+    background-color: midnightblue;
+    transform: scaleX(0);
+    transition: transform 0.3s;
+}
+
+/*On va ensuite devoir gérer 2 cas, gràce à des classes CSS
+
+has-label, lorsque le champs le label doit être visible
+is-focused, lorsque le champs est actif*/
+.has-label .field-label{
+    transform: translateY(0) scale(0.75);
+}
+
+.is-focused .field-label{
+    color: midnightblue;
+}
+.field.is-focused::after{
+    transform: scaleX(1);
+}
+
+.bottom {
+    position: fixed;
+    background-color: transparent;
+    bottom: 0px;
+    width: 96%;
+}
+
+.bottom .send {
+    background-color: midnightblue;
+    color: white;
+    position: absolute;
+    right: 80px;
+    top: 22px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    padding: 0;
+    font-size: 12px;
+    outline: none;
+}
+
+.bottom .send:hover {
+    background-color: #6666ff;
+}
+
+.messages-box {
+    position: relative;
+    margin-bottom: 95px;
+}
+
+.messages-box .message {
+    background-color: midnightblue;
+    color: white;
+    padding: 3px 8px;
+    margin: 3px 3px; 
+    border-radius: 15px;
+    max-width: 75%;
+    display: inline-block;
+    min-height: 25px;
+}
+
+.messages-box .message.message-membre {
+
+    color: white;
+    background-color: midnightblue;
+}
+.messages-box .message.message-user {
+    background-color: #357ebd;
+    color: white;
+    float: right;
+}
+/*Les notifications*/
+.notifications {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    background-color: #6666ff;
+}
+
+.actualités {
+    text-align: center;
+    background-color: midnightblue;
+    color : white;
+    border-radius: 15px;
+}
+
+li.have_notifs > a {
+    color: yellow;
+    font-weight: bold;
+}
+
+.non_vu {
+    background-color: #e6e6e6
+}
+
+
